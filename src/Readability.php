@@ -18,8 +18,8 @@ class Readability
             $this->content->parse($content);
         } catch (ParseException $e) {
             $this->content = null;
-            error_log('Cannot parse: ' . $e->getMessage());
-            throw new Exception('Cannot parse: ' . $e->getMessage());
+            error_log('Cannot parse: '.$e->getMessage());
+            throw new Exception('Cannot parse: '.$e->getMessage());
         }
 
         return $this;
@@ -68,8 +68,6 @@ class Readability
 
     /**
      * Return the images of the content
-     *
-     * @return array
      */
     public function getImages(): array
     {
@@ -108,5 +106,4 @@ class Readability
             throw new Exception('Content is null. Did you forget to call parse()?');
         }
     }
-
 }
