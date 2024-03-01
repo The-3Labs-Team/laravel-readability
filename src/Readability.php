@@ -4,8 +4,8 @@ namespace The3LabsTeam\Readability;
 
 use Exception;
 use fivefilters\Readability\Configuration;
-use fiveFilters\Readability\ParseException;
-use fiveFilters\Readability\Readability as FFReadability;
+use fivefilters\Readability\ParseException;
+use fivefilters\Readability\Readability as FFReadability;
 
 class Readability
 {
@@ -27,6 +27,8 @@ class Readability
 
     /**
      * Return the title of the content
+     *
+     * @throws Exception
      */
     public function getTitle(): string
     {
@@ -37,6 +39,7 @@ class Readability
 
     /**
      * Return the excerpt of the content
+     * @throws Exception
      */
     public function getExcerpt(): string
     {
@@ -47,6 +50,7 @@ class Readability
 
     /**
      * Return the author of the content
+     * @throws Exception
      */
     public function getAuthor(): string
     {
@@ -57,6 +61,7 @@ class Readability
 
     /**
      * Return the image of the content
+     * @throws Exception
      */
     public function getImage(): string
     {
@@ -68,8 +73,7 @@ class Readability
 
     /**
      * Return the images of the content
-     *
-     * @return array
+     * @throws Exception
      */
     public function getImages(): array
     {
@@ -91,6 +95,7 @@ class Readability
 
     /**
      * Return the direction
+     * @throws Exception
      */
     public function getDirection(): string
     {
@@ -101,6 +106,7 @@ class Readability
 
     /**
      * Check if the content is parsed
+     * @throws Exception
      */
     private function checkContent(): void
     {
@@ -108,5 +114,4 @@ class Readability
             throw new Exception('Content is null. Did you forget to call parse()?');
         }
     }
-
 }
