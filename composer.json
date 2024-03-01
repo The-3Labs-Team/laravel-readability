@@ -1,86 +1,86 @@
 {
-    "name": "the-3labs-team/laravel-readability",
-    "description": "Laravel Readability is a supercharged PHP client that makes it easy to extract and manipulate the main content of a web page.",
-    "keywords": [
-        "The 3Labs Team",
-        "laravel",
-        "laravel-readability"
+  "name": "the-3labs-team/laravel-readability",
+  "description": "Laravel Readability is a supercharged PHP client that makes it easy to extract and manipulate the main content of a web page.",
+  "keywords": [
+    "The-3Labs-Team",
+    "laravel",
+    "laravel-readability"
+  ],
+  "homepage": "https://github.com/the-3labs-team/laravel-readability",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Stefano Novelli",
+      "email": "murdercode@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^8.1",
+    "fivefilters/readability.php": "^3.1",
+    "illuminate/contracts": "^10.0",
+    "spatie/laravel-package-tools": "^1.14.0"
+  },
+  "require-dev": {
+    "laravel/pint": "^1.0",
+    "nunomaduro/collision": "^7.8",
+    "larastan/larastan": "^2.0.1",
+    "orchestra/testbench": "^8.8",
+    "pestphp/pest": "^2.20",
+    "pestphp/pest-plugin-arch": "^2.5",
+    "pestphp/pest-plugin-laravel": "^2.0",
+    "phpstan/extension-installer": "^1.1",
+    "phpstan/phpstan-deprecation-rules": "^1.0",
+    "phpstan/phpstan-phpunit": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "The3LabsTeam\\Readability\\": "src/",
+      "The3LabsTeam\\Readability\\Database\\Factories\\": "database/factories/",
+      "fiveFilters\\Readability\\": "vendor/fivefilters/readability.php/src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "The3LabsTeam\\Readability\\Tests\\": "tests/",
+      "Workbench\\App\\": "workbench/app/"
+    }
+  },
+  "scripts": {
+    "post-autoload-dump": "@composer run prepare",
+    "clear": "@php vendor/bin/testbench package:purge-laravel-readability --ansi",
+    "prepare": "@php vendor/bin/testbench package:discover --ansi",
+    "build": [
+      "@composer run prepare",
+      "@php vendor/bin/testbench workbench:build --ansi"
     ],
-    "homepage": "https://github.com/the-3labs-team/laravel-readability",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Stefano Novelli",
-            "email": "murdercode@gmail.com",
-            "role": "Developer"
-        }
+    "start": [
+      "Composer\\Config::disableProcessTimeout",
+      "@composer run build",
+      "@php vendor/bin/testbench serve"
     ],
-    "require": {
-        "php": "^8.1",
-        "fivefilters/readability.php": "^3.1",
-        "illuminate/contracts": "^10.0",
-        "spatie/laravel-package-tools": "^1.14.0"
-    },
-    "require-dev": {
-        "laravel/pint": "^1.0",
-        "nunomaduro/collision": "^7.8",
-        "larastan/larastan": "^2.0.1",
-        "orchestra/testbench": "^8.8",
-        "pestphp/pest": "^2.20",
-        "pestphp/pest-plugin-arch": "^2.5",
-        "pestphp/pest-plugin-laravel": "^2.0",
-        "phpstan/extension-installer": "^1.1",
-        "phpstan/phpstan-deprecation-rules": "^1.0",
-        "phpstan/phpstan-phpunit": "^1.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "The3LabsTeam\\Readability\\": "src/",
-            "The3LabsTeam\\Readability\\Database\\Factories\\": "database/factories/",
-            "fiveFilters\\Readability\\": "vendor/fivefilters/readability.php/src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "The3LabsTeam\\Readability\\Tests\\": "tests/",
-            "Workbench\\App\\": "workbench/app/"
-        }
-    },
-    "scripts": {
-        "post-autoload-dump": "@composer run prepare",
-        "clear": "@php vendor/bin/testbench package:purge-laravel-readability --ansi",
-        "prepare": "@php vendor/bin/testbench package:discover --ansi",
-        "build": [
-            "@composer run prepare",
-            "@php vendor/bin/testbench workbench:build --ansi"
-        ],
-        "start": [
-            "Composer\\Config::disableProcessTimeout",
-            "@composer run build",
-            "@php vendor/bin/testbench serve"
-        ],
-        "analyse": "vendor/bin/phpstan analyse",
-        "test": "vendor/bin/pest",
-        "test-coverage": "vendor/bin/pest --coverage",
-        "format": "vendor/bin/pint"
-    },
-    "config": {
-        "sort-packages": true,
-        "allow-plugins": {
-            "pestphp/pest-plugin": true,
-            "phpstan/extension-installer": true
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "The3LabsTeam\\Readability\\ReadabilityServiceProvider"
-            ],
-            "aliases": {
-                "Readability": "The3LabsTeam\\Readability\\Facades\\Readability"
-            }
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    "analyse": "vendor/bin/phpstan analyse",
+    "test": "vendor/bin/pest",
+    "test-coverage": "vendor/bin/pest --coverage",
+    "format": "vendor/bin/pint"
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true,
+      "phpstan/extension-installer": true
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "The3LabsTeam\\Readability\\ReadabilityServiceProvider"
+      ],
+      "aliases": {
+        "Readability": "The3LabsTeam\\Readability\\Facades\\Readability"
+      }
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
