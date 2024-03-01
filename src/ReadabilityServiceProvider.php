@@ -16,9 +16,5 @@ class ReadabilityServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-readability');
-//            ->hasConfigFile()
-//            ->hasViews()
-//            ->hasMigration('create_laravel-readability_table')
-//            ->hasCommand(ReadabilityCommand::class);
     }
 }
