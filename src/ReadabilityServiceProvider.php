@@ -4,7 +4,6 @@ namespace The3LabsTeam\Readability;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use The3LabsTeam\Readability\Commands\ReadabilityCommand;
 
 class ReadabilityServiceProvider extends PackageServiceProvider
 {
@@ -16,10 +15,10 @@ class ReadabilityServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('laravel-readability')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laravel-readability_table')
-            ->hasCommand(ReadabilityCommand::class);
+            ->name('laravel-readability');
+//            ->hasConfigFile()
+//            ->hasViews()
+//            ->hasMigration('create_laravel-readability_table')
+//            ->hasCommand(ReadabilityCommand::class);
     }
 }
