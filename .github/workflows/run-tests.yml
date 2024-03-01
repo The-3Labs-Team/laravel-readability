@@ -16,10 +16,10 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        os: [ubuntu-latest, windows-latest]
-        php: [8.3, 8.2, 8.1]
-        laravel: [10.*]
-        stability: [prefer-lowest, prefer-stable]
+        os: [ ubuntu-latest, windows-latest ]
+        php: [ 8.3, 8.2, 8.1 ]
+        laravel: [ 10.* ]
+        stability: [ prefer-lowest, prefer-stable ]
         include:
           - laravel: 10.*
             testbench: 8.*
@@ -51,5 +51,17 @@ jobs:
       - name: List Installed Dependencies
         run: composer show -D
 
+      - name: Setup Code Climate
+        uses: amancevice/setup-code-climate@v1
+        with:
+          cc_test_reporter_id: ${{ secrets.CC_TEST_REPORTER_ID }}
+
+      - name: Install Code Climate Test Reporter
+        run: cc-test-reporter before-build
+
       - name: Execute tests
         run: vendor/bin/pest --ci
+        
+      - name: Upload coverage reports to Code Climate
+        run: |
+          cc-test-reporter after-build

@@ -1,19 +1,18 @@
-# This is my package laravel-readability
+<p align="center"><img src="https://github.com/the-3labs-team/laravel-readability/raw/HEAD/art/banner.png" width="100%" alt="Logo Laravel Readability"></p>
+
+# Laravel Readability
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/the-3labs-team/laravel-readability.svg?style=flat-square)](https://packagist.org/packages/the-3labs-team/laravel-readability)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/the-3labs-team/laravel-readability/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/the-3labs-team/laravel-readability/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![Github PHPStan](https://img.shields.io/github/actions/workflow/status/the-3labs-team/laravel-readability/phpstan.yml?branch=main&label=phpstan&style=flat-square)](https://github.com/the-3labs-team/laravel-readability/actions?query=workflow%3Aphpstan+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/the-3labs-team/laravel-readability/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/the-3labs-team/laravel-readability/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Maintainability](https://api.codeclimate.com/v1/badges/22028e79c4aa8a329bd5/maintainability)](https://codeclimate.com/github/The-3Labs-Team/laravel-readability/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/22028e79c4aa8a329bd5/test_coverage)](https://codeclimate.com/github/The-3Labs-Team/laravel-readability/test_coverage)
+![License Mit](https://img.shields.io/github/license/murdercode/laravel-shortcode-plus)
 [![Total Downloads](https://img.shields.io/packagist/dt/the-3labs-team/laravel-readability.svg?style=flat-square)](https://packagist.org/packages/the-3labs-team/laravel-readability)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-readability.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-readability)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+This package is a Laravel wrapper for [readability.php](https://github.com/fivefilters/readability.php). It provides a
+simple way to extract the main content from a webpage.
 
 ## Installation
 
@@ -23,37 +22,36 @@ You can install the package via composer:
 composer require the-3labs-team/laravel-readability
 ```
 
-You can publish and run the migrations with:
+Since it uses the readability.php package, you will need the following PHP extensions:
 
 ```bash
-php artisan vendor:publish --tag="laravel-readability-migrations"
-php artisan migrate
+$ sudo apt-get install php7.4-xml php7.4-mbstring
 ```
 
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --tag="laravel-readability-config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="laravel-readability-views"
-```
+Please change the version according to your PHP version.
 
 ## Usage
 
 ```php
-$readability = new The3LabsTeam\Readability();
-echo $readability->echoPhrase('Hello, The3LabsTeam!');
+$html = '<html>...</html>';
+$parsed = Readability::parse($html);
+$title = $parsed->getTitle();
+```
+
+You can use the same methods as the original package. Please refer to
+the [readability.php documentation](https://github.com/fivefilters/readability.php).
+
+```php
+$html = '<html>...</html>';
+$parsed = Readability::parse($html);
+
+$title = $parsed->getTitle();
+$content = $parsed->getContent();
+$excerpt = $parsed->getExcerpt();
+$author = $parsed->getAuthor();
+$direction = $parsed->getDirection();
+$image = $parsed->getImage();
+$images = $parsed->getImages();
 ```
 
 ## Testing
