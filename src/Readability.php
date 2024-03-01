@@ -18,8 +18,8 @@ class Readability
             $this->content->parse($content);
         } catch (ParseException $e) {
             $this->content = null;
-            error_log('Cannot parse: ' . $e->getMessage());
-            throw new Exception('Cannot parse: ' . $e->getMessage());
+            error_log('Cannot parse: '.$e->getMessage());
+            throw new Exception('Cannot parse: '.$e->getMessage());
         }
 
         return $this;
@@ -39,6 +39,7 @@ class Readability
 
     /**
      * Return the excerpt of the content
+     *
      * @throws Exception
      */
     public function getExcerpt(): string
@@ -50,6 +51,7 @@ class Readability
 
     /**
      * Return the author of the content
+     *
      * @throws Exception
      */
     public function getAuthor(): string
@@ -61,6 +63,7 @@ class Readability
 
     /**
      * Return the image of the content
+     *
      * @throws Exception
      */
     public function getImage(): string
@@ -73,6 +76,7 @@ class Readability
 
     /**
      * Return the images of the content
+     *
      * @throws Exception
      */
     public function getImages(): array
@@ -95,6 +99,7 @@ class Readability
 
     /**
      * Return the direction
+     *
      * @throws Exception
      */
     public function getDirection(): string
@@ -106,6 +111,7 @@ class Readability
 
     /**
      * Check if the content is parsed
+     *
      * @throws Exception
      */
     private function checkContent(): void
