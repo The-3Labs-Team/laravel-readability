@@ -62,4 +62,4 @@ jobs:
 
       - name: Upload coverage reports to Code Climate
         run: |
-          cc-test-reporter after-build
+          cc-test-reporter after-build -t clover --exit-code $?
