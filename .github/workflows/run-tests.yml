@@ -41,7 +41,7 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
-          coverage: none
+          coverage: xdebug
 
       - name: Install dependencies
         run: |
@@ -62,4 +62,4 @@ jobs:
 
       - name: Upload coverage reports to Code Climate
         run: |
-          cc-test-reporter after-build -t -d clover --exit-code $? -r .
+          cc-test-reporter after-build
