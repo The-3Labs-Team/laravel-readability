@@ -48,6 +48,12 @@ it('can parse and get images', function () {
         ->and($images)->toContain('/static/img/bitcoin/privacy.svg');
 });
 
+it('can parse and get the direction', function () {
+    $html = file_get_contents(__DIR__.'/fixtures/demo.html');
+    $direction = Readability::parse($html)->getDirection();
+    expect($direction)->toBe('ltr');
+});
+
 it('can parse and get the content', function () {
     $html = file_get_contents(__DIR__.'/fixtures/demo.html');
     $readability = Readability::parse($html);
