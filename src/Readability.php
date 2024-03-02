@@ -76,7 +76,7 @@ class Readability
         $this->checkContent();
         $image = $this->content->getImage();
 
-        return $image !== null ? $image : '';
+        return $image ?? '';
     }
 
     /**
@@ -87,9 +87,8 @@ class Readability
     public function getImages(): array
     {
         $this->checkContent();
-        $images = $this->content->getImages();
 
-        return $images !== null ? array_values($images) : [];
+        return $this->content->getImages();
     }
 
     /**
