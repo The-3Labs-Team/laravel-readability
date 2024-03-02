@@ -7,6 +7,7 @@
 [![Github PHPStan](https://img.shields.io/github/actions/workflow/status/the-3labs-team/laravel-readability/phpstan.yml?branch=main&label=phpstan&style=flat-square)](https://github.com/the-3labs-team/laravel-readability/actions?query=workflow%3Aphpstan+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/the-3labs-team/laravel-readability/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/the-3labs-team/laravel-readability/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Maintainability](https://api.codeclimate.com/v1/badges/0fcf8cc60952fcc6d286/maintainability)](https://codeclimate.com/github/The-3Labs-Team/laravel-readability/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/0fcf8cc60952fcc6d286/test_coverage)](https://codeclimate.com/github/The-3Labs-Team/laravel-readability/test_coverage)
 ![License Mit](https://img.shields.io/github/license/murdercode/laravel-shortcode-plus)
 [![Total Downloads](https://img.shields.io/packagist/dt/the-3labs-team/laravel-readability.svg?style=flat-square)](https://packagist.org/packages/the-3labs-team/laravel-readability)
 
