@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-readability` will be documented in this file.
 
+## v1.0.2 - 2024-03-02
+
+### What's Changed
+
+* Add test coverage by @murdercode in https://github.com/The-3Labs-Team/laravel-readability/pull/3
+* Add tests for direction by @murdercode in https://github.com/The-3Labs-Team/laravel-readability/pull/4
+
+**Full Changelog**: https://github.com/The-3Labs-Team/laravel-readability/compare/v1.0.1...v1.0.2
+
 ## v1.0.1 - 2024-03-01
 
 ### What's Changed
