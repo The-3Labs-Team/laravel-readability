@@ -9,8 +9,13 @@ use fivefilters\Readability\Readability as FFReadability;
 
 class Readability
 {
-    private $content;
+    private ?FFReadability $content;
 
+    /**
+     * Parse the content
+     *
+     * @throws Exception
+     */
     public function parse(string $content): self
     {
         $this->content = new FFReadability(new Configuration());
