@@ -49,7 +49,7 @@ jobs:
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
       - name: Setup Code Climate
-        uses: amancevice/setup-code-climate@v1
+        uses: amancevice/setup-code-climate@v2
         with:
           cc_test_reporter_id: ${{ secrets.CC_TEST_REPORTER_ID }}
 
