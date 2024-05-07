@@ -23,8 +23,8 @@ class Readability
             $this->content->parse($content);
         } catch (ParseException $e) {
             $this->content = null;
-            error_log('Cannot parse: '.$e->getMessage());
-            throw new Exception('Cannot parse: '.$e->getMessage());
+            error_log('Cannot parse: ' . $e->getMessage());
+            throw new Exception('Cannot parse: ' . $e->getMessage());
         }
 
         return $this;
@@ -47,7 +47,7 @@ class Readability
      *
      * @throws Exception
      */
-    public function getExcerpt(): string
+    public function getExcerpt(): ?string
     {
         $this->checkContent();
 
