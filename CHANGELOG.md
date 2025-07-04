@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-readability` will be documented in this file.
 
+## v1.0.4 - 2025-07-04
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 1.6.0 to 2.2.0 by @dependabot in https://github.com/The-3Labs-Team/laravel-readability/pull/9
+* Bump amancevice/setup-code-climate from 1 to 2 by @dependabot in https://github.com/The-3Labs-Team/laravel-readability/pull/5
+* Bump dependabot/fetch-metadata from 2.2.0 to 2.3.0 by @dependabot in https://github.com/The-3Labs-Team/laravel-readability/pull/10
+* Bump aglipanci/laravel-pint-action from 2.4 to 2.5 by @dependabot in https://github.com/The-3Labs-Team/laravel-readability/pull/11
+* Bump dependabot/fetch-metadata from 2.3.0 to 2.4.0 by @dependabot in https://github.com/The-3Labs-Team/laravel-readability/pull/12
+
+**Full Changelog**: https://github.com/The-3Labs-Team/laravel-readability/compare/v1.0.3...v1.0.4
+
 ## v1.0.3 - 2024-05-07
 
 ### What's Changed
