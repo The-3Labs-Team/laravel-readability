@@ -33,6 +33,8 @@ Please change the version according to your PHP version.
 ## Usage
 
 ```php
+use The3LabsTeam\LaravelReadability\Facades\Readability;
+
 $html = '<html>...</html>';
 $parsed = Readability::parse($html);
 $title = $parsed->getTitle();
@@ -53,6 +55,29 @@ $direction = $parsed->getDirection();
 $image = $parsed->getImage();
 $images = $parsed->getImages();
 ```
+
+### Get the source list
+
+```php
+use The3LabsTeam\LaravelReadability\Readability as ReadabilityClass;
+
+$html = '<html>...</html>';
+$parse = (new ReadabilityClass($html))
+->getSourceList(
+    $domainWhitelist = ['example.com', 'another-example.com/some-path'],
+    $tagsToExtract = ['a', 'iframe', 'text'] // Optional, default is ['a', 'iframe']
+)
+->parse();
+$content = $parsed->getContent();
+```
+
+´$content´ will contain the list of sources in the article.
+
+```html
+...
+<p>Source list: https://example.com/source1, https://example.com/source2</p>
+```
+
 
 ## Testing
 
