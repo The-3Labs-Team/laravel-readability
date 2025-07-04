@@ -10,7 +10,9 @@ use fivefilters\Readability\Readability as FFReadability;
 class Readability
 {
     private ?FFReadability $content = null;
+
     public ?string $rawHtml = null;
+
     public array $sourceList = [];
 
     public function __construct(?string $rawHtml = null)
@@ -27,7 +29,7 @@ class Readability
      */
     public function parse(?string $content = null): self
     {
-        $this->content = new FFReadability(new Configuration());
+        $this->content = new FFReadability(new Configuration);
         try {
             $this->content->parse($content ?? $this->rawHtml);
         } catch (ParseException $e) {
@@ -109,11 +111,11 @@ class Readability
 
         $content = $this->content->getContent();
 
-        if(!empty($this->sourceList)) {
-            $sourceLinksHtml = '<p>Source list: ' . implode(', ', $this->sourceList) . '</p>';
-            $content .= "\n\n" . $sourceLinksHtml;
+        if (! empty($this->sourceList)) {
+            $sourceLinksHtml = '<p>Source list: '.implode(', ', $this->sourceList).'</p>';
+            $content .= "\n\n".$sourceLinksHtml;
         }
-        
+
         return $content;
     }
 
@@ -132,13 +134,13 @@ class Readability
     /**
      * Estrae i link da tag specifici e dal testo, filtrando per dominio
      *
-     * @param array $domainWhitelist - List of domains to whitelist, can be regex patterns or simple strings
-     * @param array $tagsToExtract ['a', 'iframe', 'img', 'text']
+     * @param  array  $domainWhitelist  - List of domains to whitelist, can be regex patterns or simple strings
+     * @param  array  $tagsToExtract  ['a', 'iframe', 'img', 'text']
      * @return $this
      */
     public function addSourceList(array $domainWhitelist = [], array $tagsToExtract = ['a', 'iframe']): self
     {
-        $dom = new \DOMDocument();
+        $dom = new \DOMDocument;
         libxml_use_internal_errors(true);
         $dom->loadHTML($this->rawHtml);
         libxml_clear_errors();
@@ -172,7 +174,7 @@ class Readability
             }
         }
 
-        if (!empty($domainWhitelist)) {
+        if (! empty($domainWhitelist)) {
             $filtered = [];
             foreach ($links as $href) {
                 foreach ($domainWhitelist as $domain) {

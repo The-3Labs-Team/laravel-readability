@@ -3,7 +3,7 @@
 use The3LabsTeam\Readability\Facades\Readability;
 use The3LabsTeam\Readability\Readability as ReadabilityClass;
 
-//./vendor/bin/pest tests/ReadabilityTest.php
+// ./vendor/bin/pest tests/ReadabilityTest.php
 
 it('cannot parse a non html', function () {
     $html = 'This is a test';
@@ -33,7 +33,6 @@ it('can parse and get the title from ReadabilityClass', function () {
     $title = $parsed->getTitle();
     expect($title)->toBe('Bitcoin: A Peer-to-Peer Electronic Cash System');
 });
-
 
 it('can parse and get excerpt', function () {
     $html = file_get_contents(__DIR__.'/fixtures/demo.html');
@@ -142,7 +141,6 @@ it('can parse and get the content with source list with specific URL', function 
     expect($content)->toContain('https://www.facebook.com/v3.2/plugins/post');
     expect($content)->not->toContain('https://www.facebook.com/posts/');
 });
-
 
 it('can parse and get the content without source list', function () {
     $html = file_get_contents(__DIR__.'/fixtures/demo.html');
