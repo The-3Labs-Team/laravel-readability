@@ -3,6 +3,8 @@
 use The3LabsTeam\Readability\Facades\Readability;
 use The3LabsTeam\Readability\Readability as ReadabilityClass;
 
+//./vendor/bin/pest tests/ReadabilityTest.php
+
 it('cannot parse a non html', function () {
     $html = 'This is a test';
     expect(function () use ($html) {
@@ -157,4 +159,12 @@ it('can parse and get the content with all source list', function () {
     expect($content)->toContain('https://satoshi.nakamotoinstitute.org');
     expect($content)->toContain('https://www.facebook.com/v3.2/plugins/post');
     expect($content)->toContain('https://www.bitcoin.com/wp-content/uploads/2020/10/bitcoin-whitepaper-featured-image.jpg');
+});
+
+it('can parse and get the content with source list (regex)', function () {
+    $html = file_get_contents(__DIR__.'/fixtures/demo-with-iframe.html');
+    $content = (new ReadabilityClass($html))->addSourceList(['/twitter\.com\/.*\/status\/\d+/'])->parse()->getContent();
+    expect($content)->not->toBeNull();
+    expect($content)->toContain('https://twitter.com/TomsHWItalia/status/1927702682380149224?ref_src=twsrc%5Etfw');
+    expect($content)->not->toContain('https://twitter.com/DA_NON_PRENDERE');
 });

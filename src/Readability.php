@@ -132,7 +132,7 @@ class Readability
     /**
      * Estrae i link da tag specifici e dal testo, filtrando per dominio
      *
-     * @param array $domainWhitelist
+     * @param array $domainWhitelist - List of domains to whitelist, can be regex patterns or simple strings
      * @param array $tagsToExtract ['a', 'iframe', 'img', 'text']
      * @return $this
      */
@@ -172,18 +172,23 @@ class Readability
             }
         }
 
-        //Rimuovi i link che non hanno https o http
-        $links = array_filter($links, fn($link) =>
-            preg_match('#^(https?://|www\.)#i', $link)
-        );
-
         if (!empty($domainWhitelist)) {
             $filtered = [];
             foreach ($links as $href) {
                 foreach ($domainWhitelist as $domain) {
-                    if (stripos($href, $domain) !== false) {
-                        $filtered[] = $href;
-                        break;
+                    // Check if it's a regex pattern (starts and ends with /)
+                    if (preg_match('/^\/.*\/$/', $domain)) {
+                        // It's a regex pattern
+                        if (preg_match($domain, $href)) {
+                            $filtered[] = $href;
+                            break;
+                        }
+                    } else {
+                        // It's a regular domain string
+                        if (stripos($href, $domain) !== false) {
+                            $filtered[] = $href;
+                            break;
+                        }
                     }
                 }
             }

@@ -64,8 +64,8 @@ use The3LabsTeam\LaravelReadability\Readability as ReadabilityClass;
 $html = '<html>...</html>';
 $parse = (new ReadabilityClass($html))
 ->getSourceList(
-    $domainWhitelist = ['example.com', 'another-example.com/some-path'],
-    $tagsToExtract = ['a', 'iframe', 'text'] // Optional, default is ['a', 'iframe']
+    domainWhitelist: ['example.com', 'another-example.com/some-path'],
+    tagsToExtract: ['a', 'iframe', 'text'] // Optional, default is ['a', 'iframe']
 )
 ->parse();
 $content = $parsed->getContent();
