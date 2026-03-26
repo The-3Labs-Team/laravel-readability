@@ -18,8 +18,6 @@ class Readability
     public function __construct(?string $rawHtml = null)
     {
         $this->rawHtml = $rawHtml ?? '';
-
-        return $this;
     }
 
     /**
@@ -34,7 +32,6 @@ class Readability
             $this->content->parse($content ?? $this->rawHtml);
         } catch (ParseException $e) {
             $this->content = null;
-            error_log('Cannot parse: '.$e->getMessage());
             throw new Exception('Cannot parse: '.$e->getMessage());
         }
 
