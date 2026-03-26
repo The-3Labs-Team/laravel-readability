@@ -22,15 +22,13 @@
   },
   "require-dev": {
     "laravel/pint": "^1.0",
-    "nunomaduro/collision": "^7.0",
-    "larastan/larastan": "^2.0.1",
-    "orchestra/testbench": "^8.0",
-    "pestphp/pest": "^2.20",
-    "pestphp/pest-plugin-arch": "^2.5",
-    "pestphp/pest-plugin-laravel": "^2.0",
-    "phpstan/extension-installer": "^1.1",
-    "phpstan/phpstan-deprecation-rules": "^1.0",
-    "phpstan/phpstan-phpunit": "^1.0"
+    "nunomaduro/collision": "^8.0",
+    "larastan/larastan": "^3.0",
+    "orchestra/testbench": "^10.0",
+    "pestphp/pest": "^3.0",
+    "pestphp/pest-plugin-arch": "^3.0",
+    "pestphp/pest-plugin-laravel": "^3.0",
+    "phpstan/phpstan": "^2.1"
   },
   "autoload": {
     "psr-4": {
@@ -58,7 +56,7 @@
       "@composer run build",
       "@php vendor/bin/testbench serve"
     ],
-    "analyse": "vendor/bin/phpstan analyse",
+    "analyse": "vendor/bin/phpstan analyse --memory-limit=512M",
     "test": "vendor/bin/pest",
     "test-coverage": "vendor/bin/pest --coverage",
     "format": "vendor/bin/pint"
@@ -66,8 +64,7 @@
   "config": {
     "sort-packages": true,
     "allow-plugins": {
-      "pestphp/pest-plugin": true,
-      "phpstan/extension-installer": true
+      "pestphp/pest-plugin": true
     }
   },
   "extra": {

@@ -1,0 +1,20 @@
+name: dependabot-pr-cleanup
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Maintenance policy reminder
+        run: |
+          echo "Refresh stale PRs with @dependabot rebase or @dependabot recreate."
+          echo "Close non-major PRs only after stable CI and one failed refresh attempt."
